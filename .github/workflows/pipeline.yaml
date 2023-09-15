@@ -1,0 +1,11 @@
+name: GH Workshop demo
+
+on: [push]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo hello world
+        run: |
+          echo "Hello world"
