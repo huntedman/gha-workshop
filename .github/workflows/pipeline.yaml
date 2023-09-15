@@ -18,3 +18,6 @@ jobs:
           echo "SESSION_NAME: $SESSION_NAME"
           echo "PARTICIPANT_COUNT: $PARTICIPANT_COUNT"
           echo "This message was awsesome! - $GITHUB_ACTOR"
+      - name: A message from Victoria
+        run: |
+          echo "This is my secret: $secrets.VICTORIAS_PRIVATES"
