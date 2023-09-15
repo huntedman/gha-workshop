@@ -1,6 +1,9 @@
 name: File specific workflow
 
-on: [push]
+on:
+  push:
+    paths:
+      - "food/**"
 
 jobs:
   echo-something-else:
