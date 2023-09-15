@@ -17,3 +17,4 @@ jobs:
         run: |
           echo "SESSION_NAME: $SESSION_NAME"
           echo "PARTICIPANT_COUNT: $PARTICIPANT_COUNT"
+          echo "This message was awsesome! - $GITHUB_ACTOR"
