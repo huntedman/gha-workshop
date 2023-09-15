@@ -20,4 +20,4 @@ jobs:
           echo "This message was awsesome! - $GITHUB_ACTOR"
       - name: A message from Victoria
         run: |
-          echo "This is my secret: $secrets.VICTORIAS_PRIVATES"
+          echo "This is my secret: ${{secrets.VICTORIAS_PRIVATES}}"
