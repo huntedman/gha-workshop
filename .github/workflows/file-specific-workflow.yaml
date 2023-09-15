@@ -1,0 +1,15 @@
+name: File specific workflow
+
+on:
+  push:
+    paths:
+      - "/food/**"
+
+jobs:
+  echo-something-else:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Maybe
+        run: |
+          echo "Maybe it's maybelline"
+          cat $GITHUB_EVENT_PATH
