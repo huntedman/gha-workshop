@@ -2,6 +2,10 @@ name: GH Workshop demo
 
 on: [push]
 
+env:
+  SESSION_NAME: "GitHub Actions Workshop"
+  PARTICIPANT_COUNT: "5"
+
 jobs:
   hello-world:
     runs-on: ubuntu-latest
@@ -9,3 +13,7 @@ jobs:
       - name: Echo hello world
         run: |
           echo "Hello world"
+      - name: Echo secrets
+        run: |
+          echo "SESSION_NAME: $SESSION_NAME"
+          echo "PARTICIPANT_COUNT: $PARTICIPANT_COUNT"
