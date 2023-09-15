@@ -9,6 +9,21 @@ env:
 jobs:
   run-test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: keyboardcat
+          POSTGRES_DB: tasks
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 3s
+          --health-timeout 15s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
     steps:
       - uses: "actions/checkout@v3"
       - uses: actions/setup-python@v4
