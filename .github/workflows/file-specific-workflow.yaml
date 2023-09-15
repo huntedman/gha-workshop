@@ -3,7 +3,7 @@ name: File specific workflow
 on:
   push:
     paths:
-      - "food/**"
+      - "./food/**"
 
 jobs:
   echo-something-else:
