@@ -7,17 +7,17 @@ env:
   PARTICIPANT_COUNT: "5"
 
 jobs:
-  hello-world:
+  run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo hello world
+      - uses: "actions/checkout@v3"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
         run: |
-          echo "Hello world"
-      - name: Echo secrets
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run test
         run: |
-          echo "SESSION_NAME: $SESSION_NAME"
-          echo "PARTICIPANT_COUNT: $PARTICIPANT_COUNT"
-          echo "This message was awsesome! - $GITHUB_ACTOR"
-      - name: A message from Victoria
-        run: |
-          echo "This is my secret: ${{secrets.VICTORIAS_PRIVATES}}"
+          python -m unittest discover -s tests -p 'test_*.py'
