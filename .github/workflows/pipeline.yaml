@@ -65,3 +65,18 @@ jobs:
           push: true
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+
+  notify-slack:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Notify slack"
+        uses: "slackapi/slack-github-action@v1.24.0"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          channel-id: "C05T5LEMWCQ"
+          payload: |
+            {
+              "text": "User ${{ github.actor }} pushed to ${{ github.ref }} of ${{ github.repository }}. Image is available at ghcr.io/${{ github.repository }}" 
+            }
